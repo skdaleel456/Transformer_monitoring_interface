@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformer Monitoring System</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div>
+        <strong>TRANSFORMER</strong>
+        <span>MONITORING SYSTEM</span>
+      </div>
+    </div>
+
+    
+<div class="nav-label">WORKSPACE</div>
+<a class="nav-link active" href="#overview" data-section="overview">▦ &nbsp; Overview</a>
+<a class="nav-link" href="#live-monitoring" data-section="live-monitoring">⌁ &nbsp; Live monitoring</a>
+<a class="nav-link" href="#sensor-history" data-section="sensor-history">◷ &nbsp; Sensor history</a>
+<a class="nav-link" href="#system-status" data-section="system-status">⚙ &nbsp; System status</a>
+
+
+    <div class="sidebar-bottom">
+      <span class="live-dot"></span> Local simulation
+      <p>Development environment</p>
+    </div>
+  </aside>
+
+  <main class="main" id="overview">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">POWER SYSTEMS / MONITORING</div>
+        <h1>Transformer Overview</h1>
+        <p class="subtitle">Real-time condition monitoring and operational indicators</p>
+      </div>
+      <div class="connection">
+        <span class="live-dot"></span>
+        <span id="connection-status">Connecting…</span>
+      </div>
+    </header>
+
+    <section class="metrics" id="live-monitoring">
+      <span>ⓘ</span>
+      <div><strong>Simulation mode</strong>
+        <p>All sensor values are generated for software testing. No physical transformer is connected.</p>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Live measurements</h2>
+        <p>Latest simulated sensor readings</p>
+      </div>
+      <span class="update-label">AUTO-UPDATE · 5 SEC</span>
+    </section>
+
+    <section class="metrics">
+      <article class="metric-card">
+        <div class="metric-top"><span>Winding temperature</span><span class="metric-icon orange">♨</span></div>
+        <div class="metric-value"><span id="temperature">--.-</span><small>°C</small></div>
+        <div class="metric-footer"><span id="temperature-status" class="pill">Waiting</span><span class="metric-hint">Thermal condition</span></div>
+        <div class="meter"><span id="temperature-meter" class="meter-orange"></span></div>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-top"><span>Input voltage</span><span class="metric-icon blue">ϟ</span></div>
+        <div class="metric-value"><span id="voltage">---.-</span><small>V</small></div>
+        <div class="metric-footer"><span id="voltage-status" class="pill">Waiting</span><span class="metric-hint">Supply condition</span></div>
+        <div class="meter"><span id="voltage-meter" class="meter-blue"></span></div>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-top"><span>Load current</span><span class="metric-icon purple">↗</span></div>
+        <div class="metric-value"><span id="current">--.-</span><small>A</small></div>
+        <div class="metric-footer"><span id="current-status" class="pill">Waiting</span><span class="metric-hint">Load indicator</span></div>
+        <div class="meter"><span id="current-meter" class="meter-purple"></span></div>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-top"><span>Oil level</span><span class="metric-icon green">◉</span></div>
+        <div class="metric-value"><span id="oil-level">--.-</span><small>%</small></div>
+        <div class="metric-footer"><span id="oil-status" class="pill">Waiting</span><span class="metric-hint">Tank level</span></div>
+        <div class="meter"><span id="oil-meter" class="meter-green"></span></div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel chart-panel" id="sensor-history">
+        <div class="panel-heading">
+          <div><h2>Temperature trend</h2><p>Recent readings during this browser session</p></div>
+          <span class="chart-key"><i></i> Temperature °C</span>
+        </div>
+        <canvas id="temperature-chart" height="220" aria-label="Temperature trend chart"></canvas>
+        <div class="chart-axis"><span>Older readings</span><span>Latest</span></div>
+      </article>
+
+      <article class="panel status-panel" id="system-status">
+        <div class="panel-heading"><div><h2>Condition summary</h2><p>Software threshold checks</p></div></div>
+        <div class="health-status">
+          <div id="health-indicator" class="health-indicator">●</div>
+          <div><strong id="health-title">Awaiting readings</strong><p id="health-description">Connecting to the local server.</p></div>
+        </div>
+        <div class="status-row"><span>Sensor updates</span><strong id="update-count">0</strong></div>
+        <div class="status-row"><span>Last update</span><strong id="last-update">—</strong></div>
+        <div class="status-row"><span>Database storage</span><strong id="storage-status">Waiting</strong></div>
+        <div class="status-row"><span>Active alerts</span><strong id="alert-count">0</strong></div>
+      </article>
+    </section>
+
+    <section class="panel alerts-panel">
+      <div class="panel-heading"><div><h2>Alerts & events</h2><p>Threshold notifications from simulated readings</p></div><span class="update-label">LIVE</span></div>
+      <div id="alerts-list" class="alerts-list">
+        <div class="empty-state">Waiting for the first sensor reading…</div>
+      </div>
+    </section>
+
+    <footer>Transformer Monitoring System <span>•</span> Local development build <span>•</span> Simulated data only</footer>
+  </main>
+</body>
+</html>
