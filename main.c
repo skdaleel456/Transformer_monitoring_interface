@@ -20,5 +20,5 @@ int main(void)
     close_database();
     return 0;
 }
-//gcc -g -Wall -Wextra main.c server.c database.c sensors.c -o transformer_monitor.exe -lws2_32 -lsqlite3
-//.\transformer_monitor.exe
+// To run first run this in the terminal - gcc -g -Wall -Wextra main.c server.c database.c sensors.c -o transformer_monitor.exe -lws2_32 -lsqlite3
+//next- .\transformer_monitor.exe
