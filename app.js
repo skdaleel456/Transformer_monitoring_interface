@@ -251,7 +251,7 @@ async function pollServer() {
   requestInProgress = true;
 
   try {
-    const response = await fetch("/api/readings", { cache: "no-store" });
+    const response = await fetch("https://vagueness-paper-jersey.ngrok-free.dev/api/readings", { cache: "no-store" });
     if (!response.ok) throw new Error("HTTP " + response.status);
 
     const reading = await response.json();
